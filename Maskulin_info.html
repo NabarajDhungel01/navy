@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mymaskulin Shopify — Scope of Work</title>
+<style>
+  :root {
+    --text: #37352f;
+    --muted: #787774;
+    --border: #e9e9e7;
+    --bg: #ffffff;
+    --callout-bg: #f7f6f3;
+    --accent: #2383e2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-total {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 8px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  td.hours {
+    white-space: nowrap;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  tr.total-row td {
+    font-weight: 600;
+    border-top: 1px solid var(--text);
+    border-bottom: none;
+  }
+  .callout {
+    background: var(--callout-bg);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  .callout strong { font-weight: 600; }
+  .summary-table {
+    margin-top: 8px;
+  }
+  .summary-table td.hours {
+    font-weight: 600;
+  }
+  .grand-total {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--callout-bg);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .footer-note {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mymaskulin Shopify Store</h1>
+<div class="subtitle">Scope of work and hour estimates &middot; mymaskulin.myshopify.com</div>
+
+<h2>Summary</h2>
+<table class="summary-table">
+  <tr><th>Tab</th><th style="text-align:right">Hours</th></tr>
+  <tr><td>SEO</td><td class="hours">21 – 24</td></tr>
+  <tr><td>Go Live Checklist</td><td class="hours">17 – 19</td></tr>
+  <tr><td>QA Checklist</td><td class="hours">11 – 13</td></tr>
+  <tr><td>In Progress</td><td class="hours">31 – 34</td></tr>
+  <tr class="total-row"><td>Total</td><td class="hours">80 – 90</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Visual QA — checkout customization</strong><br>
+  Custom checkout editing is not available on standard Shopify plans. It requires Shopify Plus, roughly $2,300 USD per month. This is a platform cost decision for the client rather than a development hours line item, and is not included in the totals above.
+</div>
+
+<h2>1. SEO</h2>
+<div class="tab-total">Tab total: 21 – 24 hours</div>
+<table>
+  <tr><th>Task</th><th style="text-align:right">Hours</th></tr>
+  <tr><td>SEO app setup (Yoast alternative for Shopify)</td><td class="hours">2 – 3</td></tr>
+  <tr><td>Schema.org setup (Organization, WebSite, extending Dawn's existing product/breadcrumb schema)</td><td class="hours">4 – 5</td></tr>
+  <tr><td>Set website title and description</td><td class="hours">1</td></tr>
+  <tr><td>Add title attribute to each button</td><td class="hours">3 – 4</td></tr>
+  <tr><td>H1, H2, H3, H4 heading structure audit and fix</td><td class="hours">4</td></tr>
+  <tr><td>Auto alt/title tag generation for images</td><td class="hours">3</td></tr>
+  <tr><td>Meta titles and meta descriptions</td><td class="hours">4</td></tr>
+  <tr class="total-row"><td>Subtotal</td><td class="hours">21 – 24</td></tr>
+</table>
+
+<h2>2. Go Live Checklist</h2>
+<div class="tab-total">Tab total: 17 – 19 hours</div>
+<table>
+  <tr><th>Task</th><th style="text-align:right">Hours</th></tr>
+  <tr><td>Change admin email to client email</td><td class="hours">0.5</td></tr>
+  <tr><td>Image optimization (compress/resize, Shopify CDN)</td><td class="hours">2</td></tr>
+  <tr><td>Set up contact form receiver</td><td class="hours">1</td></tr>
+  <tr><td>Setup transactional email sender (domain/SPF/DKIM)</td><td class="hours">2</td></tr>
+  <tr><td>Submit XML sitemap to Google Search Console</td><td class="hours">0.5</td></tr>
+  <tr><td>Setup Google Search Console</td><td class="hours">1</td></tr>
+  <tr><td>Setup Google reCAPTCHA</td><td class="hours">2</td></tr>
+  <tr><td>Setup Google Analytics</td><td class="hours">1</td></tr>
+  <tr><td>SEO app config for go live (shared setup with SEO tab)</td><td class="hours">1.5</td></tr>
+  <tr><td>Add newest logo and favicon</td><td class="hours">0.5</td></tr>
+  <tr><td>Add correct tagline</td><td class="hours">0.5</td></tr>
+  <tr><td>Turn on search engine indexing</td><td class="hours">0.5</td></tr>
+  <tr><td>Remove dummy/placeholder content</td><td class="hours">2</td></tr>
+  <tr><td>Add meta title and description for pages and posts</td><td class="hours">3.5</td></tr>
+  <tr class="total-row"><td>Subtotal</td><td class="hours">17 – 19</td></tr>
+</table>
+
+<h2>3. QA Checklist</h2>
+<div class="tab-total">Tab total: 11 – 13 hours</div>
+<table>
+  <tr><th>Task</th><th style="text-align:right">Hours</th></tr>
+  <tr><td>Ensure each image has alt text set correctly</td><td class="hours">2</td></tr>
+  <tr><td>Ensure all images/icons named per formula (company-name-description)</td><td class="hours">2</td></tr>
+  <tr><td>Ensure all images are size optimized while sharp in resolution</td><td class="hours">2</td></tr>
+  <tr><td>Ensure all logos are using SVG file format</td><td class="hours">3</td></tr>
+  <tr><td>Ensure all icons are using SVG file format</td><td class="hours">3</td></tr>
+  <tr class="total-row"><td>Subtotal</td><td class="hours">11 – 13</td></tr>
+</table>
+
+<h2>4. In Progress</h2>
+<div class="tab-total">Tab total: 31 – 34 hours</div>
+<table>
+  <tr><th>Task</th><th style="text-align:right">Hours</th></tr>
+  <tr><td>Press &gt; content update</td><td class="hours">1.5</td></tr>
+  <tr><td>Wholesale &gt; content update</td><td class="hours">1.5</td></tr>
+  <tr><td>Share &gt; content update</td><td class="hours">1.5</td></tr>
+  <tr><td>About Us &gt; content update</td><td class="hours">2.5</td></tr>
+  <tr><td>Ambassador &gt; content update</td><td class="hours">2.5</td></tr>
+  <tr><td>Overall mouse over effects</td><td class="hours">4</td></tr>
+  <tr><td>Ensure each button has a title attribute (site-wide pass)</td><td class="hours">3</td></tr>
+  <tr><td>Backend &gt; Products &gt; missing fields</td><td class="hours">4</td></tr>
+  <tr><td>[Desktop] Account &gt; layout issue &gt; part 1</td><td class="hours">3</td></tr>
+  <tr><td>Global &gt; missing part</td><td class="hours">1.5</td></tr>
+  <tr><td>Global &gt; button icon hover position</td><td class="hours">1.5</td></tr>
+  <tr><td>[Mobile] Global &gt; product card hover</td><td class="hours">2.5</td></tr>
+  <tr><td>[Desktop] Ambassador Completed &gt; missing part</td><td class="hours">1.5</td></tr>
+  <tr class="total-row"><td>Subtotal</td><td class="hours">31 – 34</td></tr>
+</table>
+
+<div class="grand-total">
+  <span>Grand Total</span>
+  <span>80 – 90 hours</span>
+</div>
+
+<div class="footer-note">
+  Note: the button title attribute task appears in both SEO and In Progress since it covers two different passes — SEO is the initial implementation pass, In Progress is the site-wide QA and cleanup pass. Checkout customization is excluded pending a Shopify Plus decision.
+</div>
+
+</body>
+</html>
