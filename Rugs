@@ -152,38 +152,36 @@
     <p class="meta">Ideal Rugs · Update completed 8 September 2026</p>
 
     <p>
-      We’ve applied your freight table across the live catalogue.
-      Each rug size now includes the correct Australia-wide delivery amount in its price,
+      We’ve applied your freight table across the live catalogue — including round rugs.
+      Each size now includes the correct Australia-wide delivery amount in its price,
       so customers see one clear total on the product page.
     </p>
 
     <div class="callout">
-      Delivery cost is built into the price by size — smaller rugs include less, larger rugs include more — matching the freight schedule you provided.
+      Delivery cost is built into the price by size — smaller rugs include less, larger rugs include more — matching the freight schedule you provided. For round rugs, we use the diameter (e.g. <code>160cm Round</code> → 160 cm).
     </div>
 
     <h2>At a glance</h2>
     <div class="stats">
       <div class="stat">
-        <div class="n">5,161</div>
+        <div class="n">5,207</div>
         <div class="l">Sizes updated</div>
       </div>
       <div class="stat">
-        <div class="n">47</div>
-        <div class="l">Left unchanged*</div>
+        <div class="n">46</div>
+        <div class="l">Round rugs included</div>
       </div>
       <div class="stat">
         <div class="n">Live</div>
         <div class="l">Already on the store</div>
       </div>
     </div>
-    <p style="font-size:0.9rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-      *Mostly round rugs (e.g. “160cm Round”) where size format didn’t match the length table. Happy to apply a rule for these next if you’d like.
-    </p>
 
     <h2>How freight was calculated</h2>
     <p>
-      For each size (for example <code>160×230cm</code>), we used the <strong>shorter side</strong> as the package length,
-      then added the matching freight amount from your table:
+      For rectangular sizes (e.g. <code>160×230cm</code>), we used the <strong>shorter side</strong> as the package length.
+      For round sizes (e.g. <code>160cm Round</code>), we used the <strong>diameter</strong>.
+      Then we added the matching freight amount from your table:
     </p>
     <table>
       <thead>
@@ -205,9 +203,8 @@
 
     <h2>Examples on the live store</h2>
     <p>
-      Fifteen examples across the bands. Each link opens the exact size on
-      <a href="https://idealrugs.com.au" target="_blank" rel="noopener noreferrer">idealrugs.com.au</a>
-      so you can check the new price.
+      Sample sizes across the bands (including rounds). Each link opens the exact size on
+      <a href="https://idealrugs.com.au" target="_blank" rel="noopener noreferrer">idealrugs.com.au</a>.
     </p>
 
     <div class="examples-wrap">
@@ -225,15 +222,6 @@
             <td>
               <a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-malama-washable-rug?variant=49106113200384" target="_blank" rel="noopener noreferrer">Malama By Saretta · 80×300cm</a>
               <span class="sku">ABOR8034028 · +$24</span>
-            </td>
-            <td class="num old">$239.07</td>
-            <td class="num">+$24</td>
-            <td class="num new">$263.07</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-puruma-washable-rug?variant=49106113396992" target="_blank" rel="noopener noreferrer">Puruma By Saretta · 80×300cm</a>
-              <span class="sku">ABOR8034027 · +$24</span>
             </td>
             <td class="num old">$239.07</td>
             <td class="num">+$24</td>
@@ -277,21 +265,30 @@
           </tr>
           <tr>
             <td>
-              <a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-malama-washable-rug?variant=49106113134848" target="_blank" rel="noopener noreferrer">Malama By Saretta · 160×230cm</a>
-              <span class="sku">ABOR1604028 · +$36</span>
+              <a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-black?variant=49106187452672" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Black · 160cm Round</a>
+              <span class="sku">PUFF16R22BLAC · diameter 160 · +$36</span>
             </td>
-            <td class="num old">$366.59</td>
+            <td class="num old">$189.40</td>
             <td class="num">+$36</td>
-            <td class="num new">$402.59</td>
+            <td class="num new">$225.40</td>
           </tr>
           <tr>
             <td>
-              <a href="https://idealrugs.com.au/products/ares-trojan-geometric-ivory-and-anthracite-rug?variant=49106116903168" target="_blank" rel="noopener noreferrer">Ares Trojan · 160×230cm</a>
-              <span class="sku">ARES16001 · +$36</span>
+              <a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-camel?variant=49106187518208" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Camel · 160cm Round</a>
+              <span class="sku">PUFF16R22CAME · diameter 160 · +$36</span>
             </td>
-            <td class="num old">$343.75</td>
+            <td class="num old">$189.40</td>
             <td class="num">+$36</td>
-            <td class="num new">$379.75</td>
+            <td class="num new">$225.40</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-teal?variant=49106187550976" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Teal · 160cm Round</a>
+              <span class="sku">PUFF16R33TEAL · diameter 160 · +$36</span>
+            </td>
+            <td class="num old">$189.40</td>
+            <td class="num">+$36</td>
+            <td class="num new">$225.40</td>
           </tr>
           <tr>
             <td>
@@ -359,18 +356,6 @@
         </tbody>
       </table>
     </div>
-
-    <h2>Round rugs (not updated yet)</h2>
-    <p>
-      A small group of round rugs still use sizes like <code>160cm Round</code>, which weren’t in the rectangular length table.
-      Examples:
-    </p>
-    <ul>
-      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-black" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Black</a></li>
-      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-camel" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Camel</a></li>
-      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-teal" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round — Teal</a></li>
-    </ul>
-    <p>If you’d like, we can treat diameter as package length and update these the same way.</p>
 
     <footer>
       Ideal Rugs · Prepared by Techable · 8 September 2026
