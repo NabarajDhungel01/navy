@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ideal Rugs — Freight price update report</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #78716c;
+      --line: #e7e5e4;
+      --ok: #166534;
+      --ok-bg: #f0fdf4;
+      --warn: #92400e;
+      --warn-bg: #fffbeb;
+      --bg: #fafaf9;
+      --card: #ffffff;
+      --accent: #44403c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    main {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ok);
+      background: var(--ok-bg);
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      margin-bottom: 0.85rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.35rem;
+      line-height: 1.25;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.75rem;
+    }
+    .lede {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin: 0 0 1.5rem;
+      max-width: 40rem;
+    }
+    h2 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      margin: 2rem 0 0.75rem;
+      font-weight: 650;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin: 0 0 0.5rem;
+    }
+    p { margin: 0 0 0.85rem; }
+    ul, ol {
+      margin: 0 0 1rem;
+      padding-left: 1.2rem;
+    }
+    li { margin: 0.3rem 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+      gap: 0.75rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .stat .n {
+      font-size: 1.45rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .stat .l {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 550;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: #f5f5f4;
+    }
+    tr:last-child td { border-bottom: 0; }
+    td.num, th.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    td.money-old { color: var(--muted); text-decoration: line-through; }
+    td.money-new { font-weight: 650; color: var(--ok); }
+    td.add { font-weight: 600; white-space: nowrap; }
+    a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    .note {
+      background: var(--warn-bg);
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      color: var(--warn);
+      font-size: 0.92rem;
+      margin: 1rem 0;
+    }
+    .ok-box {
+      background: var(--ok-bg);
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      color: var(--ok);
+      font-size: 0.92rem;
+      margin: 1rem 0;
+    }
+    code {
+      font-size: 0.85em;
+      background: #f5f5f4;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .sku { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82em; color: var(--muted); }
+    @media (max-width: 720px) {
+      .examples-wrap { overflow-x: auto; }
+      table.examples { min-width: 40rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">Completed · Live store</div>
+    <h1>Freight built into product prices</h1>
+    <p class="meta">
+      Ideal Rugs · Shopify storefront update · 8 September 2026<br />
+      Approach: Option C — add freight per size + free shipping at checkout
+    </p>
+
+    <p class="lede">
+      Freight from your length-based shipping table has been added into each rug variant’s price on the live store.
+      Customers now see the correct total in the product price. Checkout shipping can be set to free so freight is not charged twice.
+    </p>
+
+    <div class="ok-box">
+      <strong>Status:</strong> Live update complete —
+      <strong>5,161</strong> variants updated successfully (including 4 that were retried after a brief connection error).
+      <strong>47</strong> variants were left unchanged because size could not be parsed (mostly round rugs, e.g. “160cm Round”).
+    </div>
+
+    <h2>Summary</h2>
+    <div class="grid">
+      <div class="stat">
+        <div class="n">5,161</div>
+        <div class="l">Variants updated</div>
+      </div>
+      <div class="stat">
+        <div class="n">47</div>
+        <div class="l">Skipped (no size)</div>
+      </div>
+      <div class="stat">
+        <div class="n">6</div>
+        <div class="l">Freight bands applied</div>
+      </div>
+      <div class="stat">
+        <div class="n">100%</div>
+        <div class="l">Planned updates applied</div>
+      </div>
+    </div>
+
+    <h2>What we did</h2>
+    <ol>
+      <li>Exported a full price backup of the live catalog (<code>backup.csv</code>).</li>
+      <li>For each variant, read the size (e.g. <code>160x230cm</code>), took the <strong>lowest</strong> side as package length, and looked up freight from your table (ex GST).</li>
+      <li>Added that freight amount to the existing variant price.</li>
+      <li>Pushed the new prices to Shopify via Admin API — <strong>no theme code change</strong> required for the price hike itself.</li>
+      <li>Retried the one product that failed on a temporary connection error; all planned rows are now live.</li>
+    </ol>
+
+    <h2>Freight table used</h2>
+    <p>Rule: <strong>package length = min(width, length)</strong> from the variant size.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Package length (min side)</th>
+          <th class="num">Freight added (ex GST)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Up to 100 cm</td><td class="num">+$24</td></tr>
+        <tr><td>Up to 110 cm</td><td class="num">+$30</td></tr>
+        <tr><td>Up to 170 cm</td><td class="num">+$36</td></tr>
+        <tr><td>Up to 200 cm</td><td class="num">+$48</td></tr>
+        <tr><td>Up to 250 cm</td><td class="num">+$60</td></tr>
+        <tr><td>Up to 300 cm (and oversize)</td><td class="num">+$100</td></tr>
+        <tr><td>Underlay / small package (title match)</td><td class="num">+$24</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How many variants per band</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Freight added</th>
+          <th class="num">Variants</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>+$24.00</td><td class="num">770</td></tr>
+        <tr><td>+$30.00</td><td class="num">1</td></tr>
+        <tr><td>+$36.00</td><td class="num">1,549</td></tr>
+        <tr><td>+$48.00</td><td class="num">1,121</td></tr>
+        <tr><td>+$60.00</td><td class="num">1,044</td></tr>
+        <tr><td>+$100.00</td><td class="num">676</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Worked examples (live links)</h2>
+    <p>
+      Fifteen sample variants across the freight bands. Open any product on the storefront to confirm the new price
+      (password if prompted: storefront password). Links open in a new tab.
+    </p>
+
+    <div class="examples-wrap">
+      <table class="examples">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product / size</th>
+            <th class="num">Was</th>
+            <th class="num">Freight</th>
+            <th class="num">Now</th>
+            <th>Storefront</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              Malama By Saretta · 80×300cm<br />
+              <span class="sku">ABOR8034028 · min 80cm</span>
+            </td>
+            <td class="num money-old">$239.07</td>
+            <td class="num add">+$24</td>
+            <td class="num money-new">$263.07</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-malama-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              Puruma By Saretta · 80×300cm<br />
+              <span class="sku">ABOR8034027 · min 80cm</span>
+            </td>
+            <td class="num money-old">$239.07</td>
+            <td class="num add">+$24</td>
+            <td class="num money-new">$263.07</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-puruma-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              Ares Trojan Geometric · 80×300cm<br />
+              <span class="sku">ARES80301 · min 80cm</span>
+            </td>
+            <td class="num money-old">$224.18</td>
+            <td class="num add">+$24</td>
+            <td class="num money-new">$248.18</td>
+            <td><a href="https://idealrugs.com.au/products/ares-trojan-geometric-ivory-and-anthracite-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              RugStop Non-Slip Underlay · 115×160cm<br />
+              <span class="sku">RUGSTOP115 · underlay / small package</span>
+            </td>
+            <td class="num money-old">$36.43</td>
+            <td class="num add">+$24</td>
+            <td class="num money-new">$60.43</td>
+            <td><a href="https://idealrugs.com.au/products/rugstop-non-slip-underlay-soft-and-hard-flooring" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              Anti-Slip RUG STOP pad · 110×160cm<br />
+              <span class="sku">RUGSTOP110 · min 110cm</span>
+            </td>
+            <td class="num money-old">$28.23</td>
+            <td class="num add">+$30</td>
+            <td class="num money-new">$58.23</td>
+            <td><a href="https://idealrugs.com.au/products/anti-slip-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>
+              Borii By Saretta · 160×230cm<br />
+              <span class="sku">ABOR1604033 · min 160cm</span>
+            </td>
+            <td class="num money-old">$366.59</td>
+            <td class="num add">+$36</td>
+            <td class="num money-new">$402.59</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-borii-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>
+              Malama By Saretta · 160×230cm<br />
+              <span class="sku">ABOR1604028 · min 160cm</span>
+            </td>
+            <td class="num money-old">$366.59</td>
+            <td class="num add">+$36</td>
+            <td class="num money-new">$402.59</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-malama-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>
+              Ares Trojan Geometric · 160×230cm<br />
+              <span class="sku">ARES16001 · min 160cm</span>
+            </td>
+            <td class="num money-old">$343.75</td>
+            <td class="num add">+$36</td>
+            <td class="num money-new">$379.75</td>
+            <td><a href="https://idealrugs.com.au/products/ares-trojan-geometric-ivory-and-anthracite-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>
+              Borii By Saretta · 200×290cm<br />
+              <span class="sku">ABOR2004033 · min 200cm</span>
+            </td>
+            <td class="num money-old">$577.76</td>
+            <td class="num add">+$48</td>
+            <td class="num money-new">$625.76</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-borii-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>
+              Montana Blush Plush · 200×290cm<br />
+              <span class="sku">MONT200BLUS · min 200cm</span>
+            </td>
+            <td class="num money-old">$429.09</td>
+            <td class="num add">+$48</td>
+            <td class="num money-new">$477.09</td>
+            <td><a href="https://idealrugs.com.au/products/lissa-blush-plush-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>
+              Trend Modern Stripes · 200×290cm<br />
+              <span class="sku">TREN200T100 · min 200cm</span>
+            </td>
+            <td class="num money-old">$379.00</td>
+            <td class="num add">+$48</td>
+            <td class="num money-new">$427.00</td>
+            <td><a href="https://idealrugs.com.au/products/trend-modern-stripes-grey-beige-rug-t100" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>
+              Parai By Saretta · 240×330cm<br />
+              <span class="sku">ABOR2404030 · min 240cm</span>
+            </td>
+            <td class="num money-old">$877.29</td>
+            <td class="num add">+$60</td>
+            <td class="num money-new">$937.29</td>
+            <td><a href="https://idealrugs.com.au/products/aboriginal-art-by-saretta-parai-washable-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>
+              Amritsar Camphils Grey · 240×330cm<br />
+              <span class="sku">AMRI240CAMPGREY · min 240cm</span>
+            </td>
+            <td class="num money-old">$679.18</td>
+            <td class="num add">+$60</td>
+            <td class="num money-new">$739.18</td>
+            <td><a href="https://idealrugs.com.au/products/amritsar-camphils-grey-tribal-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>
+              Amritsar Camphils Grey · 280×380cm<br />
+              <span class="sku">AMRI280CAMPGREY · min 280cm</span>
+            </td>
+            <td class="num money-old">$912.43</td>
+            <td class="num add">+$100</td>
+            <td class="num money-new">$1,012.43</td>
+            <td><a href="https://idealrugs.com.au/products/amritsar-camphils-grey-tribal-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>
+              Amritsar Newburg Navy · 280×380cm<br />
+              <span class="sku">AMRI280NEWBNAVY · min 280cm</span>
+            </td>
+            <td class="num money-old">$912.43</td>
+            <td class="num add">+$100</td>
+            <td class="num money-new">$1,012.43</td>
+            <td><a href="https://idealrugs.com.au/products/amritsar-newburg-navy-tribal-rug" target="_blank" rel="noopener noreferrer">View product</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Skipped items</h2>
+    <p>
+      <strong>47</strong> variants were not updated because size text could not be mapped to the freight table
+      (for example round sizes like <code>160cm Round</code>). These remain at their previous price until a rule is agreed
+      (e.g. treat diameter as package length).
+    </p>
+    <p>Examples of skipped products:</p>
+    <ul>
+      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-black" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round Rug Black</a> — <code>160cm Round</code></li>
+      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-camel" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round Rug Camel</a> — <code>160cm Round</code></li>
+      <li><a href="https://idealrugs.com.au/products/puffy-soft-shag-round-rug-teal" target="_blank" rel="noopener noreferrer">Puffy Soft Shag Round Rug Teal</a> — <code>160cm Round</code></li>
+    </ul>
+
+    <h2>Recommended next step</h2>
+    <div class="note">
+      <strong>Set Australia-wide shipping to Free</strong> in Shopify Admin → Settings → Shipping and delivery,
+      so customers are not charged freight again at checkout. Product prices already include the freight amount.
+    </div>
+
+    <h2>Files retained</h2>
+    <ul>
+      <li><code>backup.csv</code> — pre-update SKU + price snapshot (rollback reference)</li>
+      <li><code>update_prices.csv</code> — planned old → new prices per variant</li>
+      <li><code>update_prices_skipped.csv</code> — variants left unchanged</li>
+      <li><code>update_prices_apply_log.csv</code> — live apply results</li>
+    </ul>
+
+    <footer>
+      Prepared for Ideal Rugs · Techable · Freight Option C (price-inclusive freight) · Report generated 8 Sep 2026.<br />
+      Store: <a href="https://idealrugs.com.au" target="_blank" rel="noopener noreferrer">idealrugs.com.au</a>
+    </footer>
+  </main>
+</body>
+</html>
