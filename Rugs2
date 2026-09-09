@@ -49,8 +49,6 @@
       border-bottom: 1px solid var(--line);
     }
     p { margin: 0 0 0.9rem; }
-    ul { margin: 0 0 1rem; padding-left: 1.2rem; }
-    li { margin: 0.3rem 0; }
     strong { font-weight: 700; }
     .callout {
       border-left: 3px solid #bbb;
@@ -123,15 +121,14 @@
     <p class="meta">Ideal Rugs · 9 September 2026</p>
 
     <p>
-      The storefront now follows the Dropbox stock sheet:
-      only SKUs in the feed with stock are shown. Zero stock is hidden.
-      When stock returns on the next sync, those products show again.
+      The storefront now follows the stock feed:
+      only SKUs with stock are shown. Zero-stock and out-of-feed items are hidden.
+      When stock returns, those products show again.
     </p>
 
     <div class="callout">
       <strong>qty &gt; 0</strong> → show ·
-      <strong>qty = 0</strong> or not in feed → hide ·
-      re-run ~every 8 hours to refresh
+      <strong>qty = 0</strong> or not in feed → hide
     </div>
 
     <h2>This run</h2>
@@ -163,13 +160,6 @@
         <tr><td>Zero stock</td><td class="num">719</td></tr>
       </tbody>
     </table>
-
-    <h2>Going forward</h2>
-    <ul>
-      <li>Replace / refresh the CSV from Dropbox</li>
-      <li>Run the sync script (with inventory)</li>
-      <li>Products back in stock automatically go live again</li>
-    </ul>
 
     <footer>
       Ideal Rugs · Techable ·
