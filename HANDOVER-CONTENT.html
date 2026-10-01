@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Techable Australia — Content & Image Handover</title>
+<style>
+:root{--ink:#080d0d;--muted:#6f7781;--line:#e6e8eb;--accent:#006dff;--field:#f4f5f6}
+*{box-sizing:border-box}body{margin:0;padding:48px 24px 96px;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;color:var(--ink);background:#fff}
+main{max-width:960px;margin:0 auto}h1{font-size:34px;letter-spacing:-.02em;margin:0 0 8px}h2{font-size:22px;margin:40px 0 14px;padding-top:28px;border-top:1px solid var(--line)}h3{font-size:17px;margin:24px 0 8px}
+p{margin:0 0 12px}code{background:var(--field);padding:2px 6px;border-radius:5px;font-size:14px}hr{display:none}
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:15px}th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--field)}
+ul,ol{padding-left:22px;margin:0 0 14px}li{margin:4px 0}a{color:var(--accent)}
+@media print{body{padding:0}h2{break-after:avoid}}
+</style></head><body><main>
+<h1>Techable Australia — Content &amp; Image Handover</h1>
+<p>Site: <code>http://localhost:10049</code> (WordPress, theme <code>techable</code>). Log in at <code>/wp-admin/</code>.</p>
+<p>Everything below is a content/image task — no code changes are needed. Items are ordered by what visitors see first.</p>
+<hr>
+<h2>1. Where things are edited</h2>
+<table><thead><tr><th>Area</th><th>Edit in WP admin</th></tr></thead><tbody>
+<tr><td>Header, mega menu, footer columns, newsletter, copyright, social links</td><td><strong>Techable Settings</strong> (left sidebar)</td></tr>
+<tr><td>Home page sections (hero, stats, work showcase, testimonials, pricing teaser)</td><td><strong>Pages → Home</strong> (fields below the editor)</td></tr>
+<tr><td>About, Pricing, Contact, Blog listing, Career listing, Request a Demo, legal pages</td><td><strong>Pages → [page]</strong> — each hero title/paragraph and section text is a field</td></tr>
+<tr><td>Service pages (39) — title, excerpt, featured image</td><td><strong>Services</strong> post type</td></tr>
+<tr><td>Service page body copy (overview, what's included, process, outcomes, FAQs)</td><td>Developer file <code>inc/service-copy.php</code> — send copy changes to the developer, or paste into the post <strong>Excerpt</strong> to override the intro</td></tr>
+<tr><td>Practice-area hub pages (Digital Marketing, Development, …)</td><td><strong>Services → Categories</strong> — the <em>Description</em> field is the hero paragraph</td></tr>
+<tr><td>Case studies</td><td><strong>Work</strong> post type — title, featured image, excerpt, body (<code>H2</code> headings become labelled rows: <em>Challenge / Approach / Outcomes</em>), <strong>Project date</strong> field</td></tr>
+<tr><td>Job ads</td><td><strong>Career</strong> post type — title, excerpt, body, fields <em>Job location</em>, <em>Employment type</em>, <em>Apply URL</em></td></tr>
+<tr><td>Blog posts</td><td><strong>Posts</strong></td></tr>
+</tbody></table>
+<hr>
+<h2>2. Priority fixes — placeholder or unverified claims still live</h2>
+<table><thead><tr><th>Page</th><th>What</th><th>Action</th></tr></thead><tbody>
+<tr><td>Home (hero cards)</td><td>"25+ Global Enterprise drives innovation", location pills <strong>Mexico / Australia</strong>, "25+ Our Esteemed Clients and Partners"</td><td>Replace with real figures and real locations. Fields: <em>Pages → Home → Hero collage</em>.</td></tr>
+<tr><td>Home (stats band)</td><td>Counter numbers</td><td>Confirm they are real. <em>Pages → Home → Stats</em>.</td></tr>
+<tr><td>Services pages (why-us band)</td><td>"25+ Brands and partners supported across Australia and Mexico"</td><td>Give the developer the real client count / regions (lives in <code>inc/service-proof.php</code>).</td></tr>
+<tr><td>Blog, Contact, Career heroes</td><td>A <strong>"Watch Demo"</strong> button from the template</td><td>Either supply a real video URL (<em>Techable Settings → Demo video</em>) or ask the developer to remove the button on those pages.</td></tr>
+<tr><td>About page</td><td>Team/leader names, awards list, "Trusted by" logos — all template content</td><td>Supply real team members (name, role, photo), real awards, real client logos.</td></tr>
+<tr><td>Pricing page</td><td>Plan names, prices, feature lists</td><td>Confirm plans are real. <em>Pages → Pricing</em>.</td></tr>
+<tr><td>Testimonials (Home)</td><td>Quotes and names are template copy</td><td>Supply 3–6 real client quotes with name, role, company, and photo.</td></tr>
+<tr><td>Case studies (5)</td><td>Titles <em>Market Magnet, Growth Engine, Trend Beacon, Market Motion, Tidal Strategy</em> and all body copy are template examples</td><td>Replace with real projects (see §4), or unpublish the ones you can't replace.</td></tr>
+<tr><td>Blog (4 posts)</td><td>Template articles</td><td>Replace or unpublish.</td></tr>
+<tr><td>Careers (3 roles)</td><td>Template roles</td><td>Replace with real openings or unpublish all (the listing shows a friendly "no open roles" message when empty).</td></tr>
+<tr><td>Legal pages (Privacy, Terms, Licence)</td><td>Template legal text</td><td>Replace with Techable's own.</td></tr>
+<tr><td>Footer newsletter</td><td>Form is wired to the Contact Form 7 shortcode set in <em>Techable Settings</em></td><td>Confirm where subscriptions go.</td></tr>
+</tbody></table>
+<hr>
+<h2>3. Images to replace (all currently template stock)</h2>
+<p>Upload via <strong>Media</strong>, then assign in the location named. Use WebP or JPG, ≤ 400 KB each unless noted.</p>
+<table><thead><tr><th>Location</th><th>Size (px)</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Home hero collage (3 images)</td><td>800 × 1000 portrait, 1200 × 800 landscape</td><td><em>Pages → Home → Hero collage</em></td></tr>
+<tr><td>Home work showcase</td><td>1600 × 900</td><td>Uses each case study's featured image</td></tr>
+<tr><td><strong>About page</strong> — 17 template images: team portraits, office/culture photos, award logos, partner logos</td><td>Portraits 800 × 1000; logos SVG or PNG on transparent</td><td><em>Pages → About</em> fields</td></tr>
+<tr><td><strong>Case studies</strong> — featured image (banner + card)</td><td>2000 × 1125 (16:9)</td><td><em>Work → [project] → Featured image</em>. Also used as the gallery on other case studies, so every project needs one.</td></tr>
+<tr><td><strong>Services</strong> — featured image (banner on the service page, thumbnail on hover rows)</td><td>1600 × 1000</td><td><em>Services → [service] → Featured image</em>. None are set yet — all 39 use 4 rotating template images.</td></tr>
+<tr><td>Blog — post featured images (10 template images on the listing)</td><td>1600 × 900</td><td><em>Posts → Featured image</em></td></tr>
+<tr><td>Open-graph / social preview image</td><td>1200 × 630</td><td>Send to developer (no SEO plugin installed)</td></tr>
+<tr><td>Favicon / site icon</td><td>512 × 512 PNG</td><td><em>Appearance → Customize → Site Identity</em></td></tr>
+</tbody></table>
+<hr>
+<h2>4. Case study template (what each Work post needs)</h2>
+<ul>
+<li><strong>Title</strong> — client or project name</li>
+<li><strong>Excerpt</strong> — one sentence summary (shown as the intro lead)</li>
+<li><strong>Featured image</strong> — 16:9</li>
+<li><strong>Project date</strong> — e.g. <code>March – 2026</code></li>
+<li><strong>Category</strong> — Brand Strategy / Digital Marketing / Growth Marketing / Web &amp; Experience (drives the portfolio filters)</li>
+<li><strong>Body</strong> — write with <code>Heading 2</code> sections; each becomes a labelled row. Suggested: <em>Challenge</em>, <em>Approach</em>, <em>Outcomes</em>. Paragraphs and bullet lists are supported.</li>
+<li>Optional fields to ask the developer to enable: <em>Client name</em>, <em>Industry</em> (the template already displays them when present).</li>
+</ul>
+<h2>5. Service page template (per service)</h2>
+<p>Each service page shows: hero (title + excerpt), banner image, <strong>Overview</strong> (2 paragraphs) + <strong>Who it's for</strong>, <strong>What's included</strong> (6 bullets), <strong>How we work</strong> (4 steps), <strong>Outcomes</strong> (3 bullets), related work, why-us, <strong>FAQ</strong> (4 Q&amp;As), related services. Supply copy in that shape per service and the developer drops it into <code>inc/service-copy.php</code>. Setting a post <strong>Excerpt</strong> overrides the hero summary immediately without developer help.</p>
+<hr>
+<h2>6. Already done — no action</h2>
+<ul>
+<li>Mega menu, services listing, practice-area hubs, service pages, portfolio with filters, case-study and footer layouts</li>
+<li>Every page has one H1, a meta description, canonical URL, and schema (FAQ, Service, Breadcrumb) where relevant</li>
+<li>No broken links or 404s across 73 crawled pages; legacy template brand ("Markeio") removed</li>
+<li>Old blog/career URLs from the template redirect to the right pages</li>
+</ul>
+</main></body></html>
